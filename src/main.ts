@@ -1,21 +1,14 @@
-import getHeader from "./components/Header/getHeader";
-import getSidebarMenu from "./components/SidebarMenu/getSidebarMenu";
+import getApp from "./components/App/getApp";
 
 import "./style.css";
 import "@fontsource-variable/outfit/index.css";
 
-const App = document.querySelector<HTMLDivElement>("#app");
+const Root = document.querySelector<HTMLDivElement>("#root");
 
-if (!App) {
-  throw new Error("Missing app element");
+if (!Root) {
+  throw new Error("Missing root element");
 }
 
-const SidebarMenu = getSidebarMenu();
+const App = getApp();
 
-const handleShowSidebar = (): void => {
-  SidebarMenu.classList.toggle("show");
-};
-
-const Header = getHeader(handleShowSidebar);
-
-App.append(Header, SidebarMenu);
+Root.appendChild(App);

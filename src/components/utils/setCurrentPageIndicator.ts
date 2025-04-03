@@ -1,4 +1,4 @@
-const setCurrentPageIndicator = (navList: HTMLElement) => {
+const setCurrentPageIndicator = (navList: HTMLElement): void => {
   const navListItems = navList.querySelectorAll("a");
 
   navListItems.forEach((navListItem) => {

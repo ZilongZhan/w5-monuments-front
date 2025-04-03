@@ -4,7 +4,7 @@ describe("Given a Header component", () => {
   describe("When it renders", () => {
     const screen = document.createElement("div");
 
-    const handleShowSidebar = vitest.fn();
+    const handleShowSidebar = () => {};
 
     afterEach(() => {
       screen.innerHTML = "";

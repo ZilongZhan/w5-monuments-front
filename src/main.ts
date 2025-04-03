@@ -1,14 +1,14 @@
-import getHeader from "./components/Header/getHeader";
+import getApp from "./components/App/getApp";
 
 import "./style.css";
 import "@fontsource-variable/outfit/index.css";
 
-const App = document.querySelector<HTMLDivElement>("#app");
+const Root = document.querySelector<HTMLDivElement>("#root");
 
-if (!App) {
-  throw new Error("Missing app element");
+if (!Root) {
+  throw new Error("Missing root element");
 }
 
-const Header = getHeader();
+const App = getApp();
 
-App.appendChild(Header);
+Root.appendChild(App);

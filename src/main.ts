@@ -1,4 +1,5 @@
 import getHeader from "./components/Header/getHeader";
+import getSidebarMenu from "./components/SidebarMenu/getSidebarMenu";
 
 import "./style.css";
 import "@fontsource-variable/outfit/index.css";
@@ -9,6 +10,12 @@ if (!App) {
   throw new Error("Missing app element");
 }
 
-const Header = getHeader();
+const SidebarMenu = getSidebarMenu();
 
-App.appendChild(Header);
+const handleShowSidebar = (): void => {
+  SidebarMenu.classList.toggle("show");
+};
+
+const Header = getHeader(handleShowSidebar);
+
+App.append(Header, SidebarMenu);

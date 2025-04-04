@@ -27,7 +27,7 @@ const getSidebarMenu = (): HTMLElement => {
   sidebarMenu.className = "sidebar-menu";
 
   const navList = document.createElement("ul");
-  navList.className = "nav-list";
+  navList.classList.add("nav-list", "nav-list--vertical");
   navList.innerHTML = "<li><a class='nav-list__item' href='/'>Home</a></li>";
   setCurrentPageIndicator(navList);
 

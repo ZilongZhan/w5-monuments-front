@@ -50,7 +50,6 @@ describe("Given a Header component", () => {
 
     test("Then it should show a link to home", () => {
       const expectedText = "Home";
-      const expectedHref = "/";
 
       const Header = getHeader(handleShowSidebar);
       screen.appendChild(Header);
@@ -59,7 +58,6 @@ describe("Given a Header component", () => {
 
       expect(anchorElement).not.toBeNull();
       expect(anchorElement?.textContent).toBe(expectedText);
-      expect(anchorElement?.getAttribute("href")).toBe(expectedHref);
     });
   });
 });

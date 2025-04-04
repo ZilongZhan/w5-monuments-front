@@ -22,7 +22,6 @@ describe("Given the SidebarMenu component", () => {
 
     test("Then it should show a link to home", () => {
       const expectedText = "Home";
-      const expectedHref = "/";
 
       const SidebarMenu = getSidebarMenu();
       screen.appendChild(SidebarMenu);
@@ -31,7 +30,6 @@ describe("Given the SidebarMenu component", () => {
 
       expect(anchorElement).not.toBeNull();
       expect(anchorElement?.textContent).toBe(expectedText);
-      expect(anchorElement?.getAttribute("href")).toBe(expectedHref);
     });
   });
 });

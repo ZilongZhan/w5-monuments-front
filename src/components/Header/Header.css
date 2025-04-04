@@ -1,18 +1,21 @@
 .main-header {
   display: flex;
   color: rgb(103, 32, 32);
-  padding: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   justify-content: space-between;
   align-items: center;
-  max-width: 1500px;
+  max-width: 1450px;
   margin: auto;
 
-  @media (width >= 700px) {
-    padding: 30px 70px;
+  @media (width >= 500px) {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
   @media (width >= 1000px) {
-    padding: 30px 120px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 
@@ -34,7 +37,6 @@
 }
 
 .page-title {
-  margin: 0;
   text-transform: uppercase;
   font-size: 2rem;
   user-select: none;

@@ -1,9 +1,11 @@
-import { Monument } from "../types";
+import { MonumentStructure } from "../types";
 
-const getAllMonuments = async (url: string): Promise<Monument[]> => {
+const getAllMonuments = async (url: string): Promise<MonumentStructure[]> => {
   const response = await fetch(url);
 
-  const { monuments } = (await response.json()) as { monuments: Monument[] };
+  const { monuments } = (await response.json()) as {
+    monuments: MonumentStructure[];
+  };
 
   return monuments;
 };

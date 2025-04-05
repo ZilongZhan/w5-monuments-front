@@ -1,4 +1,4 @@
-import setCurrentPageIndicator from "../utils/setCurrentPageIndicator";
+import getNavList from "../../getNavList/getNavList";
 import "./Header.css";
 
 const getHeader = (handleShowSidebar: () => void): HTMLElement => {
@@ -29,11 +29,7 @@ const getHeader = (handleShowSidebar: () => void): HTMLElement => {
   const headerNav = document.createElement("nav");
   headerNav.className = "main-header__nav";
 
-  const navList = document.createElement("ul");
-  navList.className = "nav-list";
-  navList.innerHTML = "<li><a class='nav-list__item' href='/'>Home</a></li>";
-
-  setCurrentPageIndicator(navList);
+  const navList = getNavList();
 
   headerNav.appendChild(navList);
 

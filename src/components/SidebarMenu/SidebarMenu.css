@@ -39,4 +39,5 @@
 
 .nav-list--vertical {
   flex-direction: column;
+  gap: 35px;
 }

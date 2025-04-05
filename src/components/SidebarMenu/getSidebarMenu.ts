@@ -1,4 +1,4 @@
-import setCurrentPageIndicator from "../utils/setCurrentPageIndicator";
+import getNavList from "../../getNavList/getNavList";
 import "./SidebarMenu.css";
 
 const getSidebarMenu = (): HTMLElement => {
@@ -26,10 +26,8 @@ const getSidebarMenu = (): HTMLElement => {
   const sidebarMenu = document.createElement("nav");
   sidebarMenu.className = "sidebar-menu";
 
-  const navList = document.createElement("ul");
-  navList.classList.add("nav-list", "nav-list--vertical");
-  navList.innerHTML = "<li><a class='nav-list__item' href='/'>Home</a></li>";
-  setCurrentPageIndicator(navList);
+  const navList = getNavList();
+  navList.classList.add("nav-list--vertical");
 
   const sidebarButton = document.createElement("button");
   sidebarButton.className = "close-sidebar-button";

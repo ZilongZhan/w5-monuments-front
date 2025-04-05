@@ -8,9 +8,13 @@ const getMonumentCardsList = (monuments: MonumentStructure[]): HTMLElement => {
   monumentCardList.className = "monuments";
 
   monuments.forEach((monument) => {
+    const monumentWrapper = document.createElement("li");
+
     const MonumentCard = getMonumentCard(monument);
 
-    monumentCardList.appendChild(MonumentCard);
+    monumentWrapper.appendChild(MonumentCard);
+
+    monumentCardList.appendChild(monumentWrapper);
   });
 
   return monumentCardList;

@@ -1,3 +1,4 @@
+import getByText from "../../../getByText/getByText";
 import { machuPicchu } from "../../fixtures";
 import getMonumentCard from "./getMonumentCard";
 
@@ -27,11 +28,7 @@ describe("Given the MonumentCard component", () => {
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);
 
-      const elements = Array.from(screen.querySelectorAll("*"));
-
-      const monumentLocation = elements.find((element) =>
-        element.textContent?.match(expectedLocation),
-      );
+      const monumentLocation = getByText(screen, expectedLocation);
 
       expect(monumentLocation).not.toBeUndefined();
     });
@@ -43,11 +40,7 @@ describe("Given the MonumentCard component", () => {
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);
 
-      const elements = Array.from(screen.querySelectorAll("*"));
-
-      const monumentDescription = elements.find((element) =>
-        element.textContent?.match(expectedDescription),
-      );
+      const monumentDescription = getByText(screen, expectedDescription);
 
       expect(monumentDescription).not.toBeUndefined();
     });

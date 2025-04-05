@@ -1,4 +1,5 @@
 import getNavList from "../../getNavList/getNavList";
+
 import "./Header.css";
 
 const getHeader = (handleShowSidebar: () => void): HTMLElement => {

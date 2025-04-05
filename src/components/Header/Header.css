@@ -77,7 +77,7 @@
 
   &:hover {
     color: inherit;
-    background-color: rgb(255, 137, 137);
+    background-color: rgb(255, 198, 198);
     box-shadow: 3px 3px 4px rgb(142, 75, 75);
   }
 }

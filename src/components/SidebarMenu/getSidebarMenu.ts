@@ -1,4 +1,5 @@
 import getNavList from "../../getNavList/getNavList";
+
 import "./SidebarMenu.css";
 
 const getSidebarMenu = (): HTMLElement => {

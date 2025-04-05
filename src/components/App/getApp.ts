@@ -1,8 +1,13 @@
+import getMonumentCardsList from "../../monument/components/MonumentCardsList/getMonumentCardsList";
+import monuments from "../../monument/data/monuments";
 import getHeader from "../Header/getHeader";
 import getSidebarMenu from "../SidebarMenu/getSidebarMenu";
 
+import "./App.css";
+
 const getApp = (): HTMLElement => {
   const app = document.createElement("div");
+  app.className = "app";
 
   const SidebarMenu = getSidebarMenu();
 
@@ -12,7 +17,14 @@ const getApp = (): HTMLElement => {
 
   const Header = getHeader(handleShowSidebar);
 
-  app.append(Header, SidebarMenu);
+  const mainContent = document.createElement("div");
+  mainContent.className = "main-content";
+
+  const MonumentCardsList = getMonumentCardsList(monuments);
+
+  mainContent.appendChild(MonumentCardsList);
+
+  app.append(Header, SidebarMenu, mainContent);
 
   return app;
 };

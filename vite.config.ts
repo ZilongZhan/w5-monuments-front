@@ -7,4 +7,7 @@ export default defineConfig({
     globals: true,
     reporters: ["verbose"],
   },
+  build: {
+    target: "ESNext",
+  },
 });

@@ -1,6 +1,7 @@
 import { MonumentStructure } from "../types";
+import { url } from ".";
 
-const getAllMonuments = async (url: string): Promise<MonumentStructure[]> => {
+const getAllMonuments = async (): Promise<MonumentStructure[]> => {
   const response = await fetch(url);
 
   const { monuments } = (await response.json()) as {

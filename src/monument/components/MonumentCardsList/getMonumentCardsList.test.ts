@@ -2,15 +2,15 @@ import { bigBen, greatPyramidOfGiza, machuPicchu } from "../../fixtures";
 import getMonumentCardsList from "./getMonumentCardsList";
 
 describe("Given the MonumentCardsList component", () => {
-  describe("When it receives Machu Picchu, Great Pyramid of Giza, and Big Ben and it renders", () => {
+  describe("When it receives Machu Picchu, Great Pyramid of Giza, and Big Ben", () => {
     test("Then it should show 'Machu Picchu', 'Great Pyramid of Giza', and 'Big Ben' inside a heading each", () => {
       const screen = document.createElement("div");
 
       const monuments = [machuPicchu, greatPyramidOfGiza, bigBen];
       const expectedNames = [
-        "Machu Picchu",
-        "Great Pyramid of Giza",
-        "Big Ben",
+        machuPicchu.name,
+        greatPyramidOfGiza.name,
+        bigBen.name,
       ];
 
       const MonumentCardsList = getMonumentCardsList(monuments);

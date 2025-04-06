@@ -1,9 +1,8 @@
-import getByText from "../../../getByText/getByText";
 import { machuPicchu } from "../../fixtures";
 import getMonumentCard from "./getMonumentCard";
 
 describe("Given the MonumentCard component", () => {
-  describe("When it receives Machu Picchu and it renders", () => {
+  describe("When it receives Machu Picchu", () => {
     const screen = document.createElement("div");
 
     afterEach(() => {
@@ -11,7 +10,7 @@ describe("Given the MonumentCard component", () => {
     });
 
     test("Then it should show 'Machu Picchu' in a heading", () => {
-      const expectedName = "Machu Picchu";
+      const expectedName = machuPicchu.name;
 
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);
@@ -23,30 +22,25 @@ describe("Given the MonumentCard component", () => {
     });
 
     test("Then it should show 'Cusco, Peru'", () => {
-      const expectedLocation = "Cusco, Peru";
+      const expectedLocation = `${machuPicchu.city}, ${machuPicchu.country}`;
 
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);
 
-      const monumentLocation = getByText(screen, expectedLocation);
-
-      expect(monumentLocation).not.toBeUndefined();
+      expect(screen.textContent).toContain(expectedLocation);
     });
 
     test("Then it should show 'Machu Picchu is an Incan citadel set high in the Andes Mountains in Peru, above the Urubamba River valley.'", () => {
-      const expectedDescription =
-        "Machu Picchu is an Incan citadel set high in the Andes Mountains in Peru, above the Urubamba River valley.";
+      const expectedDescription = machuPicchu.description;
 
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);
 
-      const monumentDescription = getByText(screen, expectedDescription);
-
-      expect(monumentDescription).not.toBeUndefined();
+      expect(screen.textContent).toContain(expectedDescription);
     });
 
     test("Then it should show iconic angle of Machu Picchu", () => {
-      const expectedAlt = "Iconic angle of Machu Picchu";
+      const expectedAlt = `Iconic angle of ${machuPicchu.name}`;
 
       const MonumentCard = getMonumentCard(machuPicchu);
       screen.appendChild(MonumentCard);

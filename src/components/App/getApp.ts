@@ -2,6 +2,7 @@ import getMonumentCardsList from "../../monument/components/MonumentCardsList/ge
 import getMonumentForm from "../../monument/components/MonumentForm/getMonumentForm";
 import monuments from "../../monument/data/monuments";
 import { MonumentStructure } from "../../monument/types";
+import getFooter from "../Footer/getFooter";
 import getHeader from "../Header/getHeader";
 import getSidebarMenu from "../SidebarMenu/getSidebarMenu";
 
@@ -39,7 +40,9 @@ const getApp = (): HTMLElement => {
     mainContent.appendChild(MonumentCardsList);
   }
 
-  app.append(Header, SidebarMenu, mainContent);
+  const Footer = getFooter();
+
+  app.append(Header, SidebarMenu, mainContent, Footer);
 
   return app;
 };

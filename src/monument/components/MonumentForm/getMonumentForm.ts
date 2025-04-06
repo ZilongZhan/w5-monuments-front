@@ -1,4 +1,6 @@
 import getFormGroup from "../../../getFormGroup/getFormGroup";
+import createMonument from "../../client/createMonument";
+import { MonumentStructure } from "../../types";
 import "./MonumentForm.css";
 
 const getMonumentForm = (): HTMLElement => {
@@ -17,9 +19,9 @@ const getMonumentForm = (): HTMLElement => {
   const countryFormGroup = getFormGroup("country", "Country");
   const linkFormGroup = getFormGroup("image-url", "Link to image");
 
-  const descriptioFormGroup = document.createElement("div");
-  descriptioFormGroup.className = "form-group";
-  descriptioFormGroup.innerHTML = `
+  const descriptionFormGroup = document.createElement("div");
+  descriptionFormGroup.className = "form-group";
+  descriptionFormGroup.innerHTML = `
     <label class="monument-form__label" for="description">Description:</label>
     <textarea class="monument-form__input" id="description" rows="5" required></textarea>
   `;
@@ -34,11 +36,35 @@ const getMonumentForm = (): HTMLElement => {
     cityFormGroup,
     countryFormGroup,
     linkFormGroup,
-    descriptioFormGroup,
+    descriptionFormGroup,
     submitButton,
   );
 
   monumentForm.appendChild(formFieldset);
+
+  monumentForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = monumentForm.querySelector("#name") as HTMLInputElement;
+    const city = monumentForm.querySelector("#city") as HTMLInputElement;
+    const country = monumentForm.querySelector("#country") as HTMLInputElement;
+    const imageUrl = monumentForm.querySelector(
+      "#image-url",
+    ) as HTMLInputElement;
+    const description = monumentForm.querySelector(
+      "#description",
+    ) as HTMLTextAreaElement;
+
+    const monumentData: MonumentStructure = {
+      name: name.value,
+      description: description.value,
+      imageUrl: imageUrl.value,
+      city: city.value,
+      country: country.value,
+    };
+
+    createMonument(monumentData);
+  });
 
   return monumentForm;
 };

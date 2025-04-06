@@ -1,7 +1,10 @@
 const getNavList = (): HTMLElement => {
   const navList = document.createElement("ul");
   navList.className = "nav-list";
-  navList.innerHTML = "<li><a class='nav-list__item' href='/'>Home</a></li>";
+  navList.innerHTML = `
+    <li><a class='nav-list__item' href='/'>Home</a></li>
+    <li><a class='nav-list__item' href='/form'>Add</a></li>
+  `;
 
   const navListItems = navList.querySelectorAll("a");
 

@@ -25,7 +25,7 @@ const getMonumentForm = (
   descriptionFormGroup.className = "form-group";
   descriptionFormGroup.innerHTML = `
     <label class="monument-form__label" for="description">Description:</label>
-    <textarea class="monument-form__input" id="description" rows="5" required></textarea>
+    <textarea class="monument-form__input" id="description" rows="5" columns="2" required></textarea>
   `;
 
   const submitButton = document.createElement("button");

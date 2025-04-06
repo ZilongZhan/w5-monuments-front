@@ -56,4 +56,8 @@
   &:hover {
     background-color: rgb(253, 69, 69);
   }
+
+  &:focus {
+    outline: 3px solid rgb(255, 54, 235);
+  }
 }

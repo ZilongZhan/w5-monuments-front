@@ -4,6 +4,8 @@ describe("Given the MonumentForm component", () => {
   describe("When it renders", () => {
     const screen = document.createElement("div");
 
+    const addNewMonument = () => {};
+
     afterEach(() => {
       screen.innerHTML = "";
     });
@@ -11,7 +13,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show 'Name:', and an input field", () => {
       const expectedLabel = "Name:";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const inputElement = screen.querySelector("#name");
@@ -23,7 +25,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show 'Description:' and a text box", () => {
       const expectedLabel = "Description:";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const textareaElement = screen.querySelector("#description");
@@ -35,7 +37,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show 'Link to image:' and an input field", () => {
       const expectedLabel = "Link to image:";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const inputElement = screen.querySelector("#image-url");
@@ -47,7 +49,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show 'City:' and an input field", () => {
       const expectedLabel = "City:";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const inputElement = screen.querySelector("#city");
@@ -59,7 +61,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show 'Country:' and an input field", () => {
       const expectedLabel = "Country:";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const inputElement = screen.querySelector("#country");
@@ -71,7 +73,7 @@ describe("Given the MonumentForm component", () => {
     test("Then it should show a 'Create monument' button", () => {
       const expectedButtonText = "Create monument";
 
-      const MonumentForm = getMonumentForm();
+      const MonumentForm = getMonumentForm(addNewMonument);
       screen.appendChild(MonumentForm);
 
       const buttonElement = screen.querySelector("button");

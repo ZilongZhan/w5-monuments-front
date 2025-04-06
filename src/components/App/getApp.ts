@@ -1,6 +1,7 @@
 import getMonumentCardsList from "../../monument/components/MonumentCardsList/getMonumentCardsList";
 import getMonumentForm from "../../monument/components/MonumentForm/getMonumentForm";
 import monuments from "../../monument/data/monuments";
+import { MonumentStructure } from "../../monument/types";
 import getHeader from "../Header/getHeader";
 import getSidebarMenu from "../SidebarMenu/getSidebarMenu";
 
@@ -16,13 +17,18 @@ const getApp = (): HTMLElement => {
     SidebarMenu.classList.toggle("show");
   };
 
+  const addNewMonument = (monument: MonumentStructure): void => {
+    monuments.push(monument);
+    window.location.href = "/";
+  };
+
   const mainContent = document.createElement("div");
   mainContent.className = "main-content";
 
   const Header = getHeader(handleShowSidebar);
 
   if (window.location.pathname === "/form") {
-    const MonumentForm = getMonumentForm();
+    const MonumentForm = getMonumentForm(addNewMonument);
 
     mainContent.appendChild(MonumentForm);
   }

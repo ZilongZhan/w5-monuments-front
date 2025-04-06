@@ -3,7 +3,9 @@ import createMonument from "../../client/createMonument";
 import { MonumentStructure } from "../../types";
 import "./MonumentForm.css";
 
-const getMonumentForm = (): HTMLElement => {
+const getMonumentForm = (
+  addNewMonument: (monument: MonumentStructure) => void,
+): HTMLElement => {
   const monumentForm = document.createElement("form");
   monumentForm.className = "monument-form";
 
@@ -42,7 +44,7 @@ const getMonumentForm = (): HTMLElement => {
 
   monumentForm.appendChild(formFieldset);
 
-  monumentForm.addEventListener("submit", (event) => {
+  monumentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = monumentForm.querySelector("#name") as HTMLInputElement;
@@ -63,7 +65,9 @@ const getMonumentForm = (): HTMLElement => {
       country: country.value,
     };
 
-    createMonument(monumentData);
+    const monument = await createMonument(monumentData);
+
+    addNewMonument(monument);
   });
 
   return monumentForm;

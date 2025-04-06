@@ -10,6 +10,10 @@ const createMonument = async (
     body: JSON.stringify(monumentData),
   });
 
+  if (!response.ok) {
+    throw new Error("Error creating monument");
+  }
+
   const monument = (await response.json()) as MonumentStructure;
 
   return monument;
